@@ -11,3 +11,8 @@ cd rook/deploy/examples
 kubectl create -f crds.yaml -f common.yaml -f operator.yaml
 kubectl create -f cluster.yaml
 ```
+
+Create ROOK toolbox:
+```bash
+kubectl create -f toolbox.yaml
+```
