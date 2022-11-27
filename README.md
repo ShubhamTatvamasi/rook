@@ -22,6 +22,12 @@ Create Storage Class:
 kubectl create -f csi/rbd/storageclass.yaml
 ```
 
+Create Ceph Filesystem:
+```bash
+kubectl create -f filesystem.yaml
+```
+
+
 ### Ceph
 
 Check cluster status:
