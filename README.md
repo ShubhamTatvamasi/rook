@@ -2,6 +2,8 @@
 
 https://rook.io/docs/rook/v1.10/Getting-Started/quickstart/
 
+We need attached volumes or hard disks to the worker nodes for ceph to provision.
+
 Clone the latest rook repo and deploy rook:
 ```bash
 git clone --single-branch --branch v1.10.6 https://github.com/rook/rook.git
