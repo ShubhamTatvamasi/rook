@@ -33,6 +33,12 @@ Check Storage Class:
 kubectl get storageclass
 ```
 
+Set rook-ceph-block as default Storage Class:
+```bash
+kubectl patch storageclass rook-ceph-block \
+  --patch='{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
+
 ### Ceph
 
 Check cluster status:
