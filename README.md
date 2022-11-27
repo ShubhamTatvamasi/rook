@@ -17,12 +17,12 @@ Create ROOK toolbox:
 kubectl create -f toolbox.yaml
 ```
 
-Create Storage Class:
+Create Storage Class for **ReadWriteOnce**:
 ```bash
 kubectl create -f csi/rbd/storageclass.yaml
 ```
 
-Create Ceph Filesystem:
+Create Ceph Filesystem for **ReadWriteMany**:
 ```bash
 kubectl create -f filesystem.yaml
 kubectl create -f csi/cephfs/storageclass.yaml
