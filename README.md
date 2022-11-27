@@ -25,6 +25,7 @@ kubectl create -f csi/rbd/storageclass.yaml
 Create Ceph Filesystem:
 ```bash
 kubectl create -f filesystem.yaml
+kubectl create -f csi/cephfs/storageclass.yaml
 ```
 
 
