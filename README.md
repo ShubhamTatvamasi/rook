@@ -16,3 +16,10 @@ Create ROOK toolbox:
 ```bash
 kubectl create -f toolbox.yaml
 ```
+
+### Ceph
+
+Check cluster status:
+```bash
+ceph status
+```
