@@ -39,6 +39,14 @@ kubectl patch storageclass rook-ceph-block \
   --patch='{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
+Create a pvc and pod:
+```bash
+curl -sL https://k8s.io/examples/pods/storage/pv-claim.yaml \
+  | sed 's/manual/rook-ceph-block/' | kubectl apply -f -
+
+kubectl apply -f https://k8s.io/examples/pods/storage/pv-pod.yaml
+```
+
 ### Ceph
 
 Check cluster status:
