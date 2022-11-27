@@ -28,6 +28,10 @@ kubectl create -f filesystem.yaml
 kubectl create -f csi/cephfs/storageclass.yaml
 ```
 
+Check Storage Class:
+```bash
+kubectl get storageclass
+```
 
 ### Ceph
 
