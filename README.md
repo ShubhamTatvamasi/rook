@@ -17,6 +17,11 @@ Create ROOK toolbox:
 kubectl create -f toolbox.yaml
 ```
 
+Create Storage Class:
+```bash
+kubectl create -f csi/rbd/storageclass.yaml
+```
+
 ### Ceph
 
 Check cluster status:
