@@ -1,5 +1,13 @@
 # rook
 
+Add helm repo:
+```bash
+helm repo add rook https://charts.rook.io/release
+```
+
+
+---
+
 https://rook.io/docs/rook/v1.20/Getting-Started/quickstart/
 
 We need attached volumes or hard disks to the worker nodes for ceph to provision.
