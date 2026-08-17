@@ -5,6 +5,14 @@ Add helm repo:
 helm repo add rook https://charts.rook.io/release
 ```
 
+Install rook-ceph:
+```bash
+helm upgrade -i rook-ceph rook/rook-ceph 
+  --create-namespace \
+  --namespace rook-ceph \
+  -f values.yaml
+```
+
 
 ---
 
