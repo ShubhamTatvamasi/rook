@@ -19,16 +19,4 @@ helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster
   --namespace rook-ceph
 ```
 
----
 
-
-### Ceph
-
-Check cluster status:
-```bash
-ceph status
-```
-
-```bash
-ceph osd status
-```
