@@ -33,3 +33,10 @@ Access Dashboard:
 ```bash
 kubectl -n rook-ceph port-forward svc/rook-ceph-mgr-dashboard 8443:8443
 ```
+
+dashboard password:
+```bash
+kubectl -n rook-ceph get secret rook-ceph-dashboard-password \
+  -o jsonpath='{.data.password}' | base64 -d; echo
+```
+
