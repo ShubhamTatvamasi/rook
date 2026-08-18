@@ -20,3 +20,8 @@ helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster
 ```
 
 
+| Node      | Role                    | vCPU |   RAM | Root Disk | Ceph Disk |
+| --------- | ----------------------- | ---: | ----: | --------: | --------: |
+| `rke2-01` | RKE2 Server + Rook/Ceph |    8 | 16 GB |     40 GB |     50 GB |
+| `rke2-02` | RKE2 Server + Rook/Ceph |    8 | 16 GB |     40 GB |     50 GB |
+| `rke2-03` | RKE2 Server + Rook/Ceph |    8 | 16 GB |     40 GB |     50 GB |
