@@ -29,9 +29,17 @@ helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster
 
 ---
 
+Setup Dashboard Proxy:
+```
+kubectl -n rook-ceph run dashboard-proxy \
+  --image=alpine/socat \
+  --restart=Never \
+  -- -d -d TCP-LISTEN:8443,fork,reuseaddr TCP:rook-ceph-mgr-dashboard:8443
+```
+
 Access Dashboard:
 ```bash
-kubectl -n rook-ceph port-forward svc/rook-ceph-mgr-dashboard 8443:8443
+kubectl -n rook-ceph port-forward pod/dashboard-proxy 8443:8443
 ```
 
 https://localhost:8443
