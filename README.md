@@ -34,6 +34,8 @@ Access Dashboard:
 kubectl -n rook-ceph port-forward svc/rook-ceph-mgr-dashboard 8443:8443
 ```
 
+https://localhost:8443
+
 dashboard password:
 ```bash
 kubectl -n rook-ceph get secret rook-ceph-dashboard-password \
