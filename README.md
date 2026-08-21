@@ -50,3 +50,7 @@ kubectl -n rook-ceph get secret rook-ceph-dashboard-password \
   -o jsonpath='{.data.password}' | base64 -d; echo
 ```
 
+Cleanup:
+```bash
+kubectl -n rook-ceph delete pod dashboard-proxy
+```
