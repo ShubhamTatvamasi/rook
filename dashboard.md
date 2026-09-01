@@ -1,5 +1,34 @@
 # dashboard
 
+https://10.10.153.255:30443
+
+Deploy `rook-ceph-mgr-dashboard-nodeport` service:
+```yaml
+kubectl apply -f - << EOF
+apiVersion: v1
+kind: Service
+metadata:
+  name: rook-ceph-mgr-dashboard-nodeport
+  namespace: rook-ceph
+  labels:
+    app: rook-ceph-mgr
+    rook_cluster: rook-ceph
+spec:
+  type: NodePort
+  ports:
+    - name: https-dashboard
+      port: 8443
+      targetPort: 8443
+      nodePort: 30443
+  selector:
+    app: rook-ceph-mgr
+    mgr_role: active
+    rook_cluster: rook-ceph
+EOF
+```
+
+---
+
 Setup Dashboard Proxy:
 ```
 kubectl -n rook-ceph run dashboard-proxy \
