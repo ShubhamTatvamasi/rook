@@ -13,6 +13,11 @@ Add helm repo:
 helm repo add rook https://charts.rook.io/release
 ```
 
+Look for latest release:
+```bash
+helm search repo rook
+```
+
 Install `rook-ceph` Operator:
 ```bash
 helm upgrade -i rook-ceph rook/rook-ceph \
