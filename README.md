@@ -46,6 +46,9 @@ helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster \
   --set cephClusterSpec.resources.cmd-reporter=null
 ```
 
+https://10.10.153.255:30443
+
+
 Patch dashboard service to `NodePort`:
 ```bash
 kubectl patch svc rook-ceph-mgr-dashboard \
@@ -66,6 +69,5 @@ kubectl patch svc rook-ceph-mgr-dashboard \
   }'
 ```
 
-https://10.10.153.255:30443
 
 
