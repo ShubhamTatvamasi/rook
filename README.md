@@ -66,6 +66,6 @@ kubectl patch svc rook-ceph-mgr-dashboard \
   }'
 ```
 
-
+https://10.10.153.255:30443
 
 
