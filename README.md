@@ -13,7 +13,7 @@ Add helm repo:
 helm repo add rook https://charts.rook.io/release
 ```
 
-Install `rook-ceph`:
+Install `rook-ceph` Operator:
 ```bash
 helm upgrade -i rook-ceph rook/rook-ceph \
   --create-namespace \
