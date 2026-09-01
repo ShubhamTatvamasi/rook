@@ -17,8 +17,8 @@ spec:
   type: NodePort
   ports:
     - name: https-dashboard
-      port: 8443
-      targetPort: 8443
+      port: 7000
+      targetPort: 7000
       nodePort: 30443
   selector:
     app: rook-ceph-mgr
