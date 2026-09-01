@@ -1,6 +1,6 @@
 # dashboard
 
-https://10.10.153.255:30443
+http://10.10.153.255:30443
 
 Deploy `rook-ceph-mgr-dashboard-nodeport` service:
 ```yaml
