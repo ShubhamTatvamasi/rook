@@ -1,5 +1,7 @@
 # Grafana
 
+https://github.com/ceph/ceph/tree/main/monitoring/ceph-mixin/dashboards_out
+
 Everything here runs over plain HTTP. The Ceph dashboard is deployed with `dashboard.ssl=false` (see root [README.md](../README.md)) specifically so it can embed Grafana's panels without hitting a browser mixed-content block — keep Grafana on HTTP too rather than adding TLS to one side only.
 
 Install `kube-prometheus-stack` (Prometheus + Grafana + Alertmanager):
