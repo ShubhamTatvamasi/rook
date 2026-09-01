@@ -1,6 +1,7 @@
 # api-resources
 
 
+### Rook Ceph Resources
 
 | NAME                          | SHORTNAMES                | APIVERSION      | NAMESPACED | KIND                         |
 | ----------------------------- | ------------------------- | --------------- | ---------- | ---------------------------- |
@@ -25,4 +26,14 @@
 | cephrbdmirrors                | cephrbdm                  | ceph.rook.io/v1 | true       | CephRBDMirror                |
 
 
+
+### CSI Ceph Resources
+
+| NAME                  | SHORTNAMES | APIVERSION     | NAMESPACED | KIND                 |
+| --------------------- | ---------- | -------------- | ---------- | -------------------- |
+| cephconnections       | —          | csi.ceph.io/v1 | true       | CephConnection       |
+| clientprofilemappings | —          | csi.ceph.io/v1 | true       | ClientProfileMapping |
+| clientprofiles        | —          | csi.ceph.io/v1 | true       | ClientProfile        |
+| drivers               | —          | csi.ceph.io/v1 | true       | Driver               |
+| operatorconfigs       | —          | csi.ceph.io/v1 | true       | OperatorConfig       |
 
