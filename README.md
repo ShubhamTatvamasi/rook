@@ -50,7 +50,20 @@ Patch dashboard service to `NodePort`:
 ```bash
 kubectl patch svc rook-ceph-mgr-dashboard \
   -n rook-ceph \
-  -p '{"spec": {"type": "NodePort", "ports": [{"name": "https-dashboard", "port": 8443, "targetPort": 8443, "nodePort": 30443}]}}'
+  --type=merge \
+  -p '{
+    "spec": {
+      "type": "NodePort",
+      "ports": [
+        {
+          "name": "https-dashboard",
+          "port": 8443,
+          "targetPort": 8443,
+          "nodePort": 30443
+        }
+      ]
+    }
+  }'
 ```
 
 
