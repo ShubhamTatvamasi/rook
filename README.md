@@ -15,15 +15,14 @@ helm repo add rook https://charts.rook.io/release
 
 Install `rook-ceph`:
 ```bash
-helm upgrade -i rook-ceph rook/rook-ceph 
+helm upgrade -i rook-ceph rook/rook-ceph \
   --create-namespace \
   --namespace rook-ceph
 ```
 
 Install `rook-ceph-cluster`:
 ```bash
-helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster 
-  --create-namespace \
+helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster \
   --namespace rook-ceph
 ```
 
