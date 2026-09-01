@@ -44,7 +44,8 @@ helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster \
   --set cephClusterSpec.resources.logcollector=null \
   --set cephClusterSpec.resources.cleanup=null \
   --set cephClusterSpec.resources.exporter=null \
-  --set cephClusterSpec.resources.cmd-reporter=null
+  --set cephClusterSpec.resources.cmd-reporter=null \
+  --set cephClusterSpec.dashboard.prometheusEndpoint="http://kube-prometheus-stack-prometheus.monitoring.svc:9090"
 ```
 
 
