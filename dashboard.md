@@ -19,7 +19,7 @@ spec:
     - name: https-dashboard
       port: 7000
       targetPort: 7000
-      nodePort: 30443
+      nodePort: 30080
   selector:
     app: rook-ceph-mgr
     mgr_role: active
