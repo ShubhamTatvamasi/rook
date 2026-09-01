@@ -46,4 +46,13 @@ helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster \
   --set cephClusterSpec.resources.cmd-reporter=null
 ```
 
+Patch dashboard service to `NodePort`:
+```bash
+kubectl patch svc rook-ceph-mgr-dashboard \
+  -n rook-ceph \
+  -p '{"spec": {"type": "NodePort"}}'
+```
+
+
+
 
