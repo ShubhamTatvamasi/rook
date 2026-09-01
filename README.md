@@ -32,6 +32,7 @@ Install `rook-ceph-cluster`:
 helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster \
   --namespace rook-ceph \
   --force-conflicts \
+  --set monitoring.enabled=true \
   --set toolbox.enabled=true \
   --set toolbox.resources=null \
   --set cephClusterSpec.resources.mgr=null \
