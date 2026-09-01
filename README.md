@@ -30,7 +30,21 @@ helm upgrade -i rook-ceph rook/rook-ceph \
 Install `rook-ceph-cluster`:
 ```bash
 helm upgrade -i rook-ceph-cluster rook/rook-ceph-cluster \
-  --namespace rook-ceph
+  --namespace rook-ceph \
+  --set toolbox.enabled=true \
+  --set toolbox.resources=null \
+  --set cephClusterSpec.resources.mgr=null \
+  --set cephClusterSpec.resources.mon=null \
+  --set cephClusterSpec.resources.osd=null \
+  --set cephClusterSpec.resources.prepareosd=null \
+  --set cephClusterSpec.resources.mgr-sidecar=null \
+  --set cephClusterSpec.resources.crashcollector=null \
+  --set cephClusterSpec.resources.logcollector=null \
+  --set cephClusterSpec.resources.cleanup=null \
+  --set cephClusterSpec.resources.exporter=null \
+  --set cephClusterSpec.resources.cmd-reporter=null \
+  --set "cephFileSystems[0].spec.metadataServer.resources=null" \
+  --set "cephObjectStores[0].spec.gateway.resources=null"
 ```
 
 
