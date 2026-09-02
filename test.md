@@ -10,7 +10,14 @@ Tail the logs:
 kubectl -n default logs ceph-test-pod -f
 ```
 
+Get inside pod:
+```bash
+kubectl -n default exec -it ceph-test-pod -- sh
+```
+
+
 Delete test resources:
 ```bash
 kubectl delete -f https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml
 ```
+
