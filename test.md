@@ -12,7 +12,7 @@ kubectl -n default logs ceph-test-pod -f
 
 Check file size:
 ```bash
-kubectl -n default exec ceph-test-pod -- ls -lh /data/timestamps.log
+watch -n 1 kubectl -n default exec ceph-test-pod -- ls -lh /data/timestamps.log
 ```
 
 
