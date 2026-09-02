@@ -13,3 +13,10 @@ Public URL
 kubectl -n rook-ceph exec deploy/rook-ceph-tools -- \
   ceph dashboard set-grafana-frontend-api-url "https://grafana.k8s.shubhamtatvamasi.com"
 ```
+
+---
+
+```
+kubectl -n rook-ceph exec deploy/rook-ceph-tools -- \
+  ceph config set mgr mgr/prometheus/rbd_stats_pools "ceph-blockpool"
+```
