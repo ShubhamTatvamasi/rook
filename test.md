@@ -10,9 +10,9 @@ Tail the logs:
 kubectl -n default logs ceph-test-pod -f
 ```
 
-Get inside pod:
+Check file size:
 ```bash
-kubectl -n default exec -it ceph-test-pod -- sh
+kubectl -n default exec ceph-test-pod -- ls -lh /data/timestamps.log
 ```
 
 
