@@ -1,5 +1,7 @@
 # test
 
+We need 4 Nodes so we can delete 1 node so we still have 3 nodes quorum
+
 Create test resource:
 ```bash
 kubectl apply -f https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml
