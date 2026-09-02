@@ -5,8 +5,9 @@ Create test resource:
 kubectl apply -f https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml
 ```
 
-```
-k -n default logs ceph-test-pod -f
+Tail the logs
+```bash
+kubectl -n default logs ceph-test-pod -f
 ```
 
 Delete test resources:
