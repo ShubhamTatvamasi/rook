@@ -25,8 +25,10 @@ spec:
         - /bin/sh
         - -c
         - |
+          i=0
           while true; do
-            date '+%Y-%m-%d %H:%M:%S.%N' | tee -a /data/timestamps.log
+            i=$((i + 1))
+            echo "$(date '+%Y-%m-%d %H:%M:%S') write=$i" | tee -a /data/timestamps.log
             sleep 0.1
           done
       volumeMounts:
