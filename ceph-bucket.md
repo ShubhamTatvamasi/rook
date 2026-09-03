@@ -48,27 +48,29 @@ spec:
 
           mkdir -p ~/.aws
 
-          cat > ~/.aws/config <<EOF
-          [default]
-          region = ${BUCKET_REGION:-us-east-1}
-          endpoint_url = http://${BUCKET_HOST}:${BUCKET_PORT}
-          EOF
+          printf '%s\n' \
+            '[default]' \
+            "region = ${BUCKET_REGION:-us-east-1}" \
+            "endpoint_url = http://${BUCKET_HOST}:${BUCKET_PORT}" \
+            > ~/.aws/config
+
+          echo "=== Environment ==="
+          echo "BUCKET_HOST=${BUCKET_HOST}"
+          echo "BUCKET_PORT=${BUCKET_PORT}"
+          echo "BUCKET_NAME=${BUCKET_NAME}"
 
           echo "=== AWS Config ==="
           cat ~/.aws/config
 
-          echo "=== Bucket ==="
-          echo "${BUCKET_NAME}"
-
           echo "=== Upload ==="
           echo "hello from rook-ceph" > /tmp/test.txt
-          aws s3 cp /tmp/test.txt s3://${BUCKET_NAME}/test.txt
+          aws s3 cp /tmp/test.txt "s3://${BUCKET_NAME}/test.txt"
 
           echo "=== List ==="
-          aws s3 ls s3://${BUCKET_NAME}/
+          aws s3 ls "s3://${BUCKET_NAME}/"
 
           echo "=== Download ==="
-          aws s3 cp s3://${BUCKET_NAME}/test.txt /tmp/downloaded.txt
+          aws s3 cp "s3://${BUCKET_NAME}/test.txt" /tmp/downloaded.txt
 
           echo "=== Content ==="
           cat /tmp/downloaded.txt
