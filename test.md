@@ -2,9 +2,16 @@
 
 We need 4 Nodes so we can delete 1 node so we still have 3 nodes quorum
 
-Create test resource:
+Create test resources with `ceph-block` storage class:
 ```bash
 kubectl apply -f https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml
+```
+
+Create test resources with `ceph-filesystem` storage class:
+```bash
+curl -s https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml \
+  | sed 's/ceph-block/ceph-filesystem/g' \
+  | kubectl apply -f -
 ```
 
 Tail the logs:
