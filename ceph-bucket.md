@@ -9,7 +9,7 @@ metadata:
   name: ceph-test-bucket
   namespace: default
 spec:
-  generateBucketName: ceph-test-
+  generateBucketName: ceph-test-bucket
   storageClassName: ceph-bucket
 EOF
 ```
