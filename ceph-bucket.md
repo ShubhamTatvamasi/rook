@@ -37,9 +37,14 @@ kubectl apply -f https://github.com/ShubhamTatvamasi/rook/raw/master/s3-test.yam
 
 ---
 
-Cleanup:
-```
+### Cleanup
+
+Delete pod:
+```bash
 kubectl delete -f https://github.com/ShubhamTatvamasi/rook/raw/master/s3-test.yaml
-kubectl delete -n default ObjectBucketClaim ceph-test-bucket
 ```
 
+Delete Bucket:
+```bash
+kubectl delete -n default ObjectBucketClaim ceph-test-bucket
+```
