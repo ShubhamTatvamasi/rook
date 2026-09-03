@@ -1,5 +1,12 @@
 # Ceph
 
+Restart `rook-ceph-tools` pod:
+```bash
+kubectl -n rook-ceph rollout restart deployment rook-ceph-tools
+```
+
+---
+
 Get inside `rook-ceph-tools` pod:
 ```bash
 kubectl -n rook-ceph exec -it deploy/rook-ceph-tools -- bash
