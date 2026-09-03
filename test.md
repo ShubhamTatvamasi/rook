@@ -9,7 +9,7 @@ kubectl apply -f https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.y
 
 Create test resources with `ceph-filesystem` storage class:
 ```bash
-curl -s https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml \
+curl -sL https://github.com/ShubhamTatvamasi/rook/raw/master/ceph-test.yaml \
   | sed 's/ceph-block/ceph-filesystem/g' \
   | kubectl apply -f -
 ```
