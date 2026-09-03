@@ -14,6 +14,11 @@ spec:
 EOF
 ```
 
+Get the list of all `ObjectBucketClaim` created:
+```bash
+kubectl get ObjectBucketClaim -A
+```
+
 Check the generated credentials: 
 ```bash
 kubectl get secret ceph-test-bucket -n default -o yaml | \
@@ -28,5 +33,13 @@ kubectl get configmap ceph-test-bucket -n default -o yaml
 Create a pod for testing the bucket:
 ```bash
 kubectl apply -f https://github.com/ShubhamTatvamasi/rook/raw/master/s3-test.yaml
+```
+
+---
+
+Cleanup:
+```
+kubectl delete -f https://github.com/ShubhamTatvamasi/rook/raw/master/s3-test.yaml
+kubectl delete -n default ObjectBucketClaim ceph-test-bucket
 ```
 
