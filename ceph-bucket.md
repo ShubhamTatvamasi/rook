@@ -35,46 +35,52 @@ metadata:
   namespace: default
 spec:
   restartPolicy: Never
+
   containers:
     - name: aws
       image: amazon/aws-cli
+
       command:
         - /bin/sh
         - -c
         - |
           set -e
 
-          ENDPOINT="http://${BUCKET_HOST}:${BUCKET_PORT}"
+          mkdir -p ~/.aws
 
-          echo "Endpoint: ${ENDPOINT}"
-          echo "Bucket:   ${BUCKET_NAME}"
+          cat > ~/.aws/config <<EOF
+          [default]
+          region = ${BUCKET_REGION:-us-east-1}
+          endpoint_url = http://${BUCKET_HOST}:${BUCKET_PORT}
+          EOF
 
+          echo "=== AWS Config ==="
+          cat ~/.aws/config
+
+          echo "=== Bucket ==="
+          echo "${BUCKET_NAME}"
+
+          echo "=== Upload ==="
           echo "hello from rook-ceph" > /tmp/test.txt
+          aws s3 cp /tmp/test.txt s3://${BUCKET_NAME}/test.txt
 
-          echo "--- Upload ---"
-          aws --endpoint-url "${ENDPOINT}" \
-              --region us-east-1 \
-              s3 cp /tmp/test.txt \
-              "s3://${BUCKET_NAME}/test.txt"
+          echo "=== List ==="
+          aws s3 ls s3://${BUCKET_NAME}/
 
-          echo "--- List ---"
-          aws --endpoint-url "${ENDPOINT}" \
-              --region us-east-1 \
-              s3 ls \
-              "s3://${BUCKET_NAME}/"
+          echo "=== Download ==="
+          aws s3 cp s3://${BUCKET_NAME}/test.txt /tmp/downloaded.txt
 
-          echo "--- Download ---"
-          aws --endpoint-url "${ENDPOINT}" \
-              --region us-east-1 \
-              s3 cp \
-              "s3://${BUCKET_NAME}/test.txt" \
-              /tmp/downloaded.txt
-
-          echo "--- Content ---"
+          echo "=== Content ==="
           cat /tmp/downloaded.txt
+
+          echo "=== Test completed ==="
+
+          sleep 3600
+
       envFrom:
         - configMapRef:
             name: ceph-test-bucket
+
         - secretRef:
             name: ceph-test-bucket
 EOF
