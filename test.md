@@ -24,6 +24,10 @@ Check file size:
 watch -n 1 kubectl -n default exec ceph-test-pod -- ls -lh /data/timestamps.log
 ```
 
+Check on which node the pod had been deployed then kill the other node:
+```bash
+kubectl -n default get pod ceph-test-pod -o wide
+```
 
 Delete test resources:
 ```bash
