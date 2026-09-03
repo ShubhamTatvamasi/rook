@@ -1,6 +1,6 @@
 # Ceph
 
-Restart `rook-ceph-tools` pod:
+Restart `rook-ceph-tools` pod if getting `RADOS permission denied`:
 ```bash
 kubectl -n rook-ceph rollout restart deployment rook-ceph-tools
 ```
