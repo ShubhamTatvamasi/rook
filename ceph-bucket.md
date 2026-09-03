@@ -13,3 +13,9 @@ spec:
   storageClassName: ceph-bucket
 EOF
 ```
+
+Check the generated credentials: 
+```bash
+kubectl get secret ceph-test-bucket -n default -o yaml | \
+  yq '.data |= with_entries(.value |= @base64d)'
+```
